@@ -1,0 +1,139 @@
+_format_version: "2.1"
+_transform: true
+
+services:
+  - name: general-service
+    url: 'http://Services:8080/'
+    routes:
+      - name: general-route
+        paths:
+          - /
+        protocols:
+          - http
+          - https
+        hosts:
+          - localhost:8000
+
+  - name: setting-operation-service
+    url: 'http://SettingOperation:8080/setting-operation'
+    routes:
+      - name: setting-operation-route
+        paths:
+          - /setting-operation
+        protocols:
+          - http
+          - https
+        hosts:
+          - localhost:8000
+          - 192.168.1.132:8000
+  - name: crm-operation-service
+    url: 'http://CRMOperation:8080/crm-operation'
+    routes:
+      - name: crm-operation-route
+        paths:
+          - /crm-operation
+        protocols:
+          - http
+          - https
+        hosts:
+          - localhost:8000
+  - name: supply-item-operation-service
+    url: 'http://SupplyItemOperation:8080/supply-item-operation'
+    routes:
+      - name: supply-item-operation-route
+        paths:
+          - /supply-item-operation
+        protocols:
+          - http
+          - https
+        hosts:
+          - localhost:8000
+  - name: supply-operation-service
+    url: 'http://SupplyOperation:8080/supply-operation'
+    routes:
+      - name: supply-operation-route
+        paths:
+          - /supply-operation
+        protocols:
+          - http
+          - https
+        hosts:
+          - localhost:8000
+  - name: core-operation-service
+    url: 'http://CoreOperation:8080/core-operation'
+    routes:
+      - name: core-operation-route
+        paths:
+          - /core-operation
+        protocols:
+          - http
+          - https
+        hosts:
+          - localhost:8000
+  - name: core-engine-service
+    url: 'http://CoreEngine:8080/core-engine'
+    routes:
+      - name: core-engine-route
+        paths:
+          - /core-engine
+        protocols:
+          - http
+          - https
+        hosts:
+          - localhost:8000
+  - name: core-stock-transfer-service
+    url: 'http://CoreStockTransfer:8080/core-stock-transfer'
+    routes:
+      - name: core-stock-transfer-route
+        paths:
+          - /core-stock-transfer
+        protocols:
+          - http
+          - https
+        hosts:
+          - localhost:8000
+          - 192.168.1.132:8000
+  - name: notification-engine-service
+    url: 'http://NotificationEngine:8080/notification-engine'
+    routes:
+      - name: notification-engine-route
+        paths:
+          - /notification-engine
+        protocols:
+          - http
+          - https
+        hosts:
+          - localhost:8000
+  # Añadir el servicio y la ruta para la aplicación Angular UI-SYNC en el puerto 80
+  - name: ui-sync-service
+    url: 'http://UI-SYNC:80'
+    routes:
+      - name: ui-sync-route
+        paths:
+          - /ui-sync
+        protocols:
+          - http
+          - https
+        hosts:
+          - localhost:8444
+
+plugins:
+  - name: acme
+    config:
+      account_email: your-email@example.com
+      domains:
+        - servicios.dominio.com
+        - localhost
+        - localhost:8000
+        - localhost:8444
+        - 192.168.1.132:8000
+      storage: shm
+
+  - name: cors
+    config:
+      origins: ['http://localhost:4200', 'http://localhost:7777', 'http://localhost:8080', '*']
+      methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE']
+      headers: ['*']
+      exposed_headers: ['*']
+      credentials: true
+      max_age: 3600
