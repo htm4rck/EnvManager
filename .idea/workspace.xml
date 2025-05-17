@@ -5,7 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c3d51d74-ac6d-435f-985f-ab6a6726d673" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/slq-server/Dockerfile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +32,7 @@
     "Docker.Lab.mysql.executor": "Run",
     "Docker.Local.Kong.executor": "Run",
     "Docker.Local.SQL-Server.executor": "Run",
+    "Docker.Local.mysql.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "main",
@@ -55,8 +55,39 @@
       <recent name="C:\proyects\GitHubNDP_azaleia\EnvManager\proxy" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.Local.SQL-Server">
+  <component name="RunManager" selected="Docker.Local.Kong">
     <configuration name="Lab.mysql" type="docker-deploy" factoryName="dockerfile" folderName="Lab">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="mysql8:8.0" />
+          <option name="containerName" value="mysql" />
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="3306" />
+                <option name="hostPort" value="3306" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
+          <option name="commandLineOptions" value="--network ndp --restart always" />
+          <option name="sourceFilePath" value="mysql/Dockerfile" />
+          <option name="volumeBindings">
+            <list>
+              <DockerVolumeBindingImpl>
+                <option name="containerPath" value="/etc/mysql" />
+                <option name="hostPath" value="mysql_data" />
+              </DockerVolumeBindingImpl>
+              <DockerVolumeBindingImpl>
+                <option name="containerPath" value="/etc/lib/mysql" />
+                <option name="hostPath" value="mysql_conf" />
+              </DockerVolumeBindingImpl>
+            </list>
+          </option>
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="Lazzos.Test.Huawei" type="docker-deploy" factoryName="dockerfile" folderName="Lazzos.Test.Huawei" server-name="Lazzos.Test.Huawei">
       <deployment type="dockerfile">
         <settings>
           <option name="imageTag" value="mysql8:8.0" />
@@ -114,10 +145,43 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="Local.mysql" type="docker-deploy" factoryName="dockerfile" folderName="Local" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="mysql8:8.0" />
+          <option name="containerName" value="mysql" />
+          <option name="portBindings">
+            <list>
+              <DockerPortBindingImpl>
+                <option name="containerPort" value="3306" />
+                <option name="hostPort" value="3306" />
+              </DockerPortBindingImpl>
+            </list>
+          </option>
+          <option name="commandLineOptions" value="--network ndp --restart always" />
+          <option name="sourceFilePath" value="mysql/Dockerfile" />
+          <option name="volumeBindings">
+            <list>
+              <DockerVolumeBindingImpl>
+                <option name="containerPath" value="/etc/mysql" />
+                <option name="hostPath" value="mysql_data" />
+              </DockerVolumeBindingImpl>
+              <DockerVolumeBindingImpl>
+                <option name="containerPath" value="/etc/lib/mysql" />
+                <option name="hostPath" value="mysql_conf" />
+              </DockerVolumeBindingImpl>
+            </list>
+          </option>
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Docker.Local.SQL-Server" />
       <item itemvalue="Docker.Local.Kong" />
+      <item itemvalue="Docker.Local.mysql" />
       <item itemvalue="Docker.Lab.mysql" />
+      <item itemvalue="Docker.Lazzos.Test.Huawei" />
     </list>
   </component>
   <component name="SharedIndexes">
@@ -148,7 +212,9 @@
       <workItem from="1742306819002" duration="362000" />
       <workItem from="1742311132817" duration="6103000" />
       <workItem from="1742913717967" duration="2717000" />
-      <workItem from="1746897671424" duration="1298000" />
+      <workItem from="1746897671424" duration="1989000" />
+      <workItem from="1747081721556" duration="1570000" />
+      <workItem from="1747423038503" duration="1357000" />
     </task>
     <servers />
   </component>
